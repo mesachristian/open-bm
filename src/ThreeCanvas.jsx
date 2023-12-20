@@ -18,14 +18,15 @@ const initOBC = async (node, file) => {
 
     const grid = new OBC.SimpleGrid(components);
 
-    //const toolbar = new OBC.Toolbar(components);
-    //components.ui.addToolbar(toolbar);
-    //toolbar.addChild(fragments.uiElement.get("main"));
-
     let fragments = new OBC.FragmentManager(components);
     let fragmentIfcLoader = new OBC.FragmentIfcLoader(components);
-    fragmentIfcLoader.settings.webIfc.COORDINATE_TO_ORIGIN = true;
-    fragmentIfcLoader.settings.webIfc.OPTIMIZE_PROFILES = true;
+    //fragmentIfcLoader.settings.webIfc.COORDINATE_TO_ORIGIN = true;
+    //fragmentIfcLoader.settings.webIfc.OPTIMIZE_PROFILES = true;
+
+    const mainToolbar = new OBC.Toolbar(components, { name: 'Main Toolbar', position: 'bottom' });
+    components.ui.addToolbar(mainToolbar);
+    //const ifcButton = fragmentIfcLoader.uiElement.get("main");
+    //mainToolbar.addChild(ifcButton);
 
     //fragmentIfcLoader.settings.webIfc.TAPE_SIZE = 0;
     fragmentIfcLoader.settings.wasm = {

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import ThreeCanvas from './ThreeCanvas'
+import NewCanvas from './NewCanvas';
 
 function App() {
 
@@ -14,7 +15,6 @@ function App() {
 
   const loadModels = async () => {
     const file1 = await fetch('ez.ifc');
-    console.log("CARGAAAA", file1)
     const file2 = await fetch('ez2.ifc');
 
     const newModels = [];
@@ -30,13 +30,7 @@ function App() {
   }, []);
 
   return (
-    <div className='App'>
-      <button className='buttonc' onClick={changeModel}>Cambiar</button>
-      <div style={{ width: '800px', height: '500px', overflow: 'hidden' }}>
-        <ThreeCanvas model={showF ? models[0] : models[1]}></ThreeCanvas>
-      </div>
-      
-    </div>
+    <NewCanvas />
   )
 }
 
